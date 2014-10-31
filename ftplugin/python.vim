@@ -45,7 +45,7 @@ filetype plugin indent on
 
 "以下配置有详细说明，一些特性不喜欢可以直接注解掉
 
-"set guifont=Monaco:h20          " 字体 && 字号
+set guifont=Monaco:h20          " 字体 && 字号
 
 " history存储容量
 set history=2000
@@ -142,7 +142,7 @@ set laststatus=2
 "显示行号：
 set number
 " 取消换行。
-set nowrap
+"set nowrap
 
 " 括号配对情况,跳转并高亮一下匹配的括号
 set showmatch
@@ -271,10 +271,10 @@ endif
 " 主要按键重定义
 
 " 关闭方向键, 强迫自己用 hjkl
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
+"map <Left> <Nop>
+"map <Right> <Nop>
+"map <Up> <Nop>
+"map <Down> <Nop>
 
 "Treat long lines as break lines (useful when moving around in them)
 "se swap之后，同物理行上线直接跳
@@ -370,8 +370,8 @@ noremap <silent><leader>/ :nohls<CR>
 " :b1 :b2   :bf :bl
 nnoremap [b :bprevious<cr>
 nnoremap ]b :bnext<cr>
-noremap <left> :bp<CR>
-noremap <right> :bn<CR>
+"noremap <left> :bp<CR>
+"noremap <right> :bn<CR>
 
 
 " tab 操作
@@ -508,7 +508,9 @@ function! AutoSetFileHead()
 endfunc
 
 " F10 to run python script
-nnoremap <buffer> <F10> :exec '!python' shellescape(@%, 1)<cr>
+nnoremap <buffer> <F10> :w<cr>:exec '!python' shellescape(@%, 1)<cr>
+imap <buffer> <F10> <ESC>:w<cr>:exec '!python %'<cr>
+
 
 "==========================================
 " Theme Settings  主题设置
@@ -532,8 +534,8 @@ if has("gui_running")
 endif
 
 " theme主题
-set background=dark
-colorscheme solarized
+set background=light
+colorscheme molokai
 set t_Co=256
 
 "colorscheme molokai
